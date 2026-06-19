@@ -31,6 +31,15 @@ PROMPT CONSULTA 2: AGRUPAMENTO E FILTRO DE AGREGACOES (HAVING)
 PROMPT Objetivo: Doadores com media de nota >= 4 e mais de 2 lotes doados.
 PROMPT =======================================================================
 
+-- Configura o tamanho máximo da linha no terminal
+SET LINESIZE 150 
+-- Formata a largura das colunas de texto (A = Alfanumérico, 30 = caracteres)
+COLUMN NOME_DOADOR FORMAT A35
+COLUMN EMAIL FORMAT A30
+-- Formata as colunas numéricas para alinhar melhor com o cabeçalho
+COLUMN TOTAL_LOTES_DOADOS FORMAT 9999999999
+COLUMN MEDIA_AVALIACAO FORMAT 99.99
+
 SELECT
     U.NOME AS NOME_DOADOR,
     U.EMAIL,
@@ -51,6 +60,9 @@ HAVING
     AND COUNT(DISTINCT L.CODIGO_LOTE) >= 2
 ORDER BY 
     MEDIA_AVALIACAO DESC;
+
+-- Limpa a formatação para não afetar as próximas consultas
+CLEAR COLUMNS
 
 PROMPT =======================================================================
 PROMPT CONSULTA 3: JUNCAO EXTERNA (LEFT JOIN) E CASOS (CASE WHEN)

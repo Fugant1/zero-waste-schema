@@ -1,0 +1,31 @@
+1. INCLUIR NO RELATÓRIO
+Não encontrei o tratamento do novo ciclo gerado com a mudança
+
+RESPOSTA: O doador deve receber o feedback e ser moderado pelo admin caso haja denúncia, pode não ser o mesmo admin que respondeu o ticket que aplicará a moderação (não há dependências)
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+2. INCLUIR NO RELATÓRIO
+INCLUIR AS ESPECIALIZAÇÕES E DISCUTIR VANTAGENS E DESVANTAGENS DE CADA RELACIONAMENTO (SE FOR APLICÁVEL) NA PARTE 4
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+3. INCLUIR NO RELATÓRIO
+Toda especialização precisa de atributo de critério. A diferença é que, quando é especialização de sobreposição (O), o atributo de critério é multivalorado
+
+RESPOSTA: O atributo de critério "tipo" foi inserido na tabela "Avaliação". Por se tratar de um overlap, "tipo" é multivalorado 
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+4. INCLUIR NO RELATÓRIO
+e a unicidade? uma chave secundária resolveria?
+
+RESPOSTA: O atributo "Req. Entrega" foi modificado para ser chave secundária da tabela "Entrega". Dessa forma, é possível garantir que não haja duas entregas para a mesma requisição
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+5. INCLUIR NO RELATÓRIO
+Ao mapear o MER para o relacional, optamos por transformar o atributo multivalorado em duas colunas monovaloradas. Dessa forma será consumida mais memória, porém ainda é mais eficiente que criar uma nova tabela (seria justificável apenas se os valores fossem muito dinâmicos e, nesse caso, não são)
+
+
+
