@@ -40,15 +40,15 @@ echo -e "\n[+] Banco de dados ONLINE e pronto para uso!"
 
 echo "----------------------------------------------------"
 echo "📦 EXECUTANDO 01: Criação do Esquema (Tabelas e Triggers)"
-docker exec -i $NOME_CONTAINER sqlplus system/$SENHA_BD@//localhost/XE < schema.sql
+docker exec -i $NOME_CONTAINER sqlplus system/$SENHA_BD@//localhost/XE < esquema.sql
 
 echo "----------------------------------------------------"
 echo "📥 EXECUTANDO 02: Inserção de Dados (Inserts)"
-docker exec -i $NOME_CONTAINER sqlplus system/$SENHA_BD@//localhost/XE < inserts.sql
+docker exec -i $NOME_CONTAINER sqlplus system/$SENHA_BD@//localhost/XE < dados.sql
 
 echo "----------------------------------------------------"
 echo "📊 EXECUTANDO 03: Consultas ao Banco (Queries)"
-docker exec -i $NOME_CONTAINER sqlplus system/$SENHA_BD@//localhost/XE < selects.sql
+docker exec -i $NOME_CONTAINER sqlplus system/$SENHA_BD@//localhost/XE < consultas.sql
 
 echo "===================================================="
 echo "✅ PROCESSO FINALIZADO COM SUCESSO!"

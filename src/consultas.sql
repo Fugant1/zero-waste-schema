@@ -81,17 +81,18 @@ ORDER BY
     TOTAL_ENTREGAS DESC;
 
 PROMPT =======================================================================
-PROMPT CONSULTA 4: OPERADOR DE CONJUNTO (MINUS)
+PROMPT CONSULTA 4: OPERADOR DE CONJUNTO (MINUS) OTIMIZADA
 PROMPT Objetivo: Doadores que receberam Denuncia, EXCETO os que ja tiveram nota 5.
 PROMPT =======================================================================
 
+-- Primeira parte otimizada: Filtra direto pela flag na tabela pai, eliminando um JOIN
 SELECT U.CPF_CNPJ, U.NOME
 FROM USUARIO U
 JOIN DOADOR D ON U.CPF_CNPJ = D.USUARIO_DOA
 JOIN LOTE_ITEM L ON D.USUARIO_DOA = L.DOADOR_
 JOIN REQUISICAO R ON L.REQUISICAO_BEN = R.ID
 JOIN AVALIACAO A ON R.ID = A.REQUISICAO_
-JOIN DENUNCIA DEN ON A.REQUISICAO_ = DEN.AVALIACAO_REQ
+WHERE A.EH_DENUNCIA = '1' 
 MINUS
 SELECT U.CPF_CNPJ, U.NOME
 FROM USUARIO U
